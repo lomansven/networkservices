@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="releasedate_string">Verschijningsdatum:</string>
+    <string name="brands">Merken:</string>
+    <string name="numberofshoes">Aantal schoenen beschikbaar:</string>
+    <string name="established">Oprichtingsdatum:</string>
+    <string name="startscreen_button">Ga naar merken</string>
+    <string name="settings_heading">Instelligen</string>
+    <string name="language">Taal:</string>
+    <string name="et_hint_shoename">Schoen Naam</string>
+    <string name="btn_addshoe">Schoen opslaan</string>
+    <string name="btn_addimage">Voeg foto toe</string>
+    <string name="add_shoe_error">Type eerst wat details in voordat je opslaat!</string>
+    <string name="add_shoe_error_no_brand">Hoe de hel ben je hier gekomen?</string>
+    <string name="add_shoe">Voeg een schoen toe</string>
+    <string name="new_shoe">Nieuwe schoen</string>
+    <string name="new_brand">Nieuw merk</string>
+    <string name="add_brand">Voeg een merk toe</string>
+    <string name="add_brand_error">Error! Type eerst wat details in voordat je opslaat!</string>
+    <string name="btn_addbrand">Merk opslaan</string>
+    <string name="et_hint_brandname">Merknaam</string>
+    <string name="et_hint_branddetails">Details</string>
+    <string name="et_hint_brand_est_date">Oprichtingsdatum</string>
+    <string name="btn_deleteshoe">Verwijder schoen</string>
+    <string name="toast_shoe_deleted">Schoen is verwijderd!</string>
+    <string name="no_permission_error_brand">Om een foto te kiezen moet je eerst toestemming geven!</string>
+    <string name="no_permission_given_error_brand">Geen toestemming om uw gallerij te lezen, merk zal geen foto hebben</string>
+    <string name="brand_not_found_error">Error! Merk niet gevonden...</string>
+    <string name="shoe_not_found_error">Error! Schoen niet gevonden...</string>
+    <string name="et_hint_shoe_release_date">Verschijningsdatum</string>
+    <string name="et_hint_shoedetails">Details</string>
+    <string name="no_permission_given_error_shoe">Geen toestemming om uw gallerij te lezen, schoen zal geen foto hebben</string>
+    <string name="image_preview_text">Foto voorbeeld:</string>
+    <string name="btn_delete_brand">Verwijder merk</string>
+    <string name="toast_brand_deleted">Merk is verwijderd!</string>
+    <string name="save_changes_btn">Aanpassingen opslaan</string>
+    <string name="edit_brand_heading">Merk aanpassen</string>
+    <string name="edit_shoe_heading">Schoen aanpassen</string>
+</resources>
