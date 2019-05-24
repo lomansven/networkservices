@@ -6,10 +6,7 @@ import nl.sneakerjagers.demo.Models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -48,7 +45,7 @@ public class JagerController {
     }
 
     @GetMapping("/brands")
-    String getBrands() {
+    public @ResponseBody String getBrands() {
         String retVal = "Brands: \n";
         if(brands.size()==0) return retVal+= "No brands have been created yet... Be the first!";
         for (Brand brand : brands) {
@@ -56,7 +53,7 @@ public class JagerController {
 
             ArrayList<Shoe> currentShoes = brand.getShoes();
             if(currentShoes.size()==0) {
-                retVal+="Brand does not contain any shoes yet... \n";
+                retVal+= "Brand does not contain any shoes yet... \n";
                 continue;
             }
 
