@@ -4,14 +4,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Brand {
+    private static int nextID = 0;
 
     private String brandName;
     private LocalDate establishmentDate;
     private String details;
+    private int brandID;
 
     private ArrayList<Shoe> shoes = new ArrayList<>();
 
     public Brand() {
+        this.brandID = nextID;
+        nextID++;
     }
 
     public String getBrandName() {
@@ -44,6 +48,10 @@ public class Brand {
 
     public void setShoes(ArrayList<Shoe> shoes) {
         this.shoes = shoes;
+    }
+
+    public int getBrandID() {
+        return brandID;
     }
 }
 

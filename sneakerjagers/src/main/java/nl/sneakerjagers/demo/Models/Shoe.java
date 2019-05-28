@@ -3,11 +3,16 @@ package nl.sneakerjagers.demo.Models;
 import java.time.LocalDate;
 
 public class Shoe {
+    private static int nextID = 0;
+
     private String shoeName;
     private LocalDate releaseDate;
     private String details;
+    private int shoeID;
 
     public Shoe() {
+        this.shoeID = nextID;
+        nextID++;
     }
 
     public String getShoeName() {
@@ -32,5 +37,9 @@ public class Shoe {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public int getShoeID() {
+        return shoeID;
     }
 }

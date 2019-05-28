@@ -3,15 +3,19 @@ package nl.sneakerjagers.demo.Models;
 import java.util.ArrayList;
 
 public class User {
+    private static int nextID = 0;
 
     private String username;
     private String password;
     private String realName;
+    private int userID;
 
     private ArrayList<Shoe> userCreatedShoes = new ArrayList<>();
     private ArrayList<Brand> userCreatedBrands = new ArrayList<>();
 
     public User() {
+        this.userID = nextID;
+        nextID++;
     }
 
     public String getUsername() {
@@ -52,5 +56,9 @@ public class User {
 
     public void setUserCreatedBrands(ArrayList<Brand> userCreatedBrands) {
         this.userCreatedBrands = userCreatedBrands;
+    }
+
+    public int getUserID() {
+        return userID;
     }
 }

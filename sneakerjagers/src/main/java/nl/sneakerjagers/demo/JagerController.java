@@ -14,8 +14,8 @@ import java.util.ArrayList;
 @RequestMapping("/sneakerjagers")
 public class JagerController {
 
-    private ArrayList<Brand> brands = new ArrayList<>();
-    private ArrayList<Shoe> shoes = new ArrayList<>();
+    private ArrayList<Brand> brands = DataProvider.brands;
+    private ArrayList<Shoe> shoes = DataProvider.shoes;
     private ArrayList<User> users = new ArrayList<>();
 
 
