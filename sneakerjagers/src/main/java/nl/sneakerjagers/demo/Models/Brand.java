@@ -18,6 +18,19 @@ public class Brand {
         nextID++;
     }
 
+    public Brand(String brandName, LocalDate establishmentDate, String details) {
+        this.brandName = brandName;
+        this.establishmentDate = establishmentDate;
+        this.details = details;
+
+        this.brandID = nextID;
+        nextID++;
+    }
+
+    public void addShoe(Shoe s) {
+        shoes.add(s);
+    }
+
     public String getBrandName() {
         return brandName;
     }

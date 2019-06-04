@@ -18,7 +18,6 @@ public class JagerController {
     private ArrayList<Shoe> shoes = DataProvider.shoes;
     private ArrayList<User> users = DataProvider.users;
 
-
     @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         if(user.getUsername()==null) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -56,6 +55,19 @@ public class JagerController {
         return retVal;
     }
 
+    @GetMapping("/shoes")
+    public @ResponseBody String getShoes() {
+        String retVal = "Shoes: \n";
+        if(shoes.size()==0) {
+            return retVal += "No shoes have been created yet... Be the first!";
+        }
+
+        for (Shoe shoe : shoes) {
+            retVal += "Shoe: " + shoe.getShoeName() + "\n";
+        }
+        return retVal;
+    }
+
     @GetMapping("/brands/shoes")
     public @ResponseBody String getBrandsWithShoes() {
         String retVal = "Brands: \n";
@@ -64,7 +76,7 @@ public class JagerController {
         }
 
         for (Brand brand : brands) {
-            retVal+= "Brand: " + brand.getBrandName() + "\n";
+            retVal += "Brand: " + brand.getBrandName() + "\n";
 
             ArrayList<Shoe> currentShoes = brand.getShoes();
             if(currentShoes.size()==0) {

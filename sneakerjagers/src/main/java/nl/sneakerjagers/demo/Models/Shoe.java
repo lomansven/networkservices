@@ -15,6 +15,15 @@ public class Shoe {
         nextID++;
     }
 
+    public Shoe(String shoeName, LocalDate releaseDate, String details) {
+        this.shoeName = shoeName;
+        this.releaseDate = releaseDate;
+        this.details = details;
+
+        this.shoeID = nextID;
+        nextID++;
+    }
+
     public String getShoeName() {
         return shoeName;
     }

@@ -18,6 +18,15 @@ public class User {
         nextID++;
     }
 
+    public User(String username, String password, String realName) {
+        this.username = username;
+        this.password = password;
+        this.realName = realName;
+
+        this.userID = nextID;
+        nextID++;
+    }
+
     public String getUsername() {
         return username;
     }
