@@ -42,6 +42,19 @@ public class JagerController {
         return new ResponseEntity<>(shoe, HttpStatus.CREATED);
     }
 
+    @GetMapping("/users")
+    public @ResponseBody String getUsers() {
+        String retVal = "Users: \n";
+        if(brands.size()==0) {
+            return retVal += "No usrs have registered yet... Be the first!";
+        }
+
+        for (User user : users) {
+            retVal+= "    User: " + user.getUsername() + "\n" + "    " + user.getRealName();
+        }
+        return retVal;
+    }
+
     @GetMapping("/brands")
     public @ResponseBody String getBrands() {
         String retVal = "Brands: \n";
