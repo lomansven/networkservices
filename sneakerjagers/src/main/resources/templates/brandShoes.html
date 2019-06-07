@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<ul>
+    <li th:each="brand : ${brands}">
+        Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
+        <ul>
+            <li th:each="shoe : ${brand.shoes}">
+                Schoen: [[${shoe.shoeName}]], release datum: [[${shoe.releaseDate}]]
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

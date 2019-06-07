@@ -1,0 +1,9 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <ul>
+        <li th:each="shoe : ${shoes}">
+            Schoen: [[${shoe.shoeName}]], release datum: [[${shoe.releaseDate}]]
+        </li>
+    </ul>
+</body>
+</html>

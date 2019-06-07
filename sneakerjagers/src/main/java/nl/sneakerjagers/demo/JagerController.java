@@ -1,11 +1,14 @@
 package nl.sneakerjagers.demo;
 
+import jdk.nashorn.internal.ir.BreakableNode;
 import nl.sneakerjagers.demo.Models.Brand;
 import nl.sneakerjagers.demo.Models.Shoe;
 import nl.sneakerjagers.demo.Models.User;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -35,72 +38,47 @@ public class JagerController {
     }
 
     @PostMapping("/shoes")
-    public ResponseEntity<Shoe> createShoe(@RequestBody Shoe shoe) {
-        if(shoe.getShoeName()==null) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Shoe> createShoe(Shoe shoe) {
+        if(shoe.getShoeName()==null || shoe.getShoeName().isEmpty()) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
         DataProvider.addShoe(shoe);
 
-        return new ResponseEntity<>(shoe, HttpStatus.CREATED);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", "/shoes");
+
+        return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
     }
 
-    @GetMapping("/users")
-    public @ResponseBody String getUsers() {
-        String retVal = "Users: \n";
-        if(brands.size()==0) {
-            return retVal += "No usrs have registered yet... Be the first!";
-        }
 
-        for (User user : users) {
-            retVal+= "    User: " + user.getUsername() + "\n" + "    " + user.getRealName();
-        }
-        return retVal;
-    }
 
     @GetMapping("/brands")
-    public @ResponseBody String getBrands() {
-        String retVal = "Brands: \n";
-        if(brands.size()==0) {
-            return retVal += "No brands have been created yet... Be the first!";
-        }
-
-        for (Brand brand : brands) {
-            retVal+= "Brand: " + brand.getBrandName() + "\n";
-        }
-        return retVal;
+    public String getBrands(Model model) {
+        model.addAttribute("brands", brands);
+        return "brands";
     }
 
     @GetMapping("/shoes")
-    public @ResponseBody String getShoes() {
-        String retVal = "Shoes: \n";
-        if(shoes.size()==0) {
-            return retVal += "No shoes have been created yet... Be the first!";
-        }
-
-        for (Shoe shoe : shoes) {
-            retVal += "Shoe: " + shoe.getShoeName() + "\n";
-        }
-        return retVal;
+    public String getShoes(Model model) {
+        model.addAttribute("shoes", shoes);
+        return "shoes";
     }
 
-    @GetMapping("/brands/shoes")
-    public @ResponseBody String getBrandsWithShoes() {
-        String retVal = "Brands: \n";
-        if(brands.size()==0) {
-            return retVal += "No brands have been created yet... Be the first!";
-        }
-
+    @GetMapping("/{brandName}/shoes")
+    public String getBrandsWithShoes(@PathVariable("brandName") String brandName, Model model) {
+        Brand currentBrand = null;
         for (Brand brand : brands) {
-            retVal += "Brand: " + brand.getBrandName() + "\n";
-
-            ArrayList<Shoe> currentShoes = brand.getShoes();
-            if(currentShoes.size()==0) {
-                retVal+= "Brand does not contain any shoes yet... \n";
-                continue;
-            }
-
-            for (Shoe shoe : currentShoes) {
-                retVal += shoe.getShoeName() + "\n";
+            if(brand.getBrandName().toLowerCase().equals(brandName.toLowerCase())) {
+                currentBrand = brand;
+                break;
             }
         }
-        return retVal;
+
+        if(currentBrand == null) {
+            throw new RuntimeException("Merk niet gevonden!");
+        }
+
+        model.addAttribute("brandShoes", currentBrand.getShoes());
+        return "brandShoes";
+
     }
 }
