@@ -23,7 +23,7 @@ public class JagerController {
 
     @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody User user) {
-        if(user.getUsername()==null) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        if(user.getUsername()==null || user.getUsername().isEmpty()) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         DataProvider.addUser(user);
 
         return new ResponseEntity<>(user, HttpStatus.CREATED);
@@ -31,7 +31,7 @@ public class JagerController {
 
     @PostMapping("/brands")
     public ResponseEntity<Brand> createBrand(@RequestBody Brand brand) {
-        if(brand.getBrandName()==null) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        if(brand.getBrandName()==null || brand.getBrandName().isEmpty()) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         DataProvider.addBrand(brand);
 
         return new ResponseEntity<>(brand, HttpStatus.CREATED);
@@ -64,7 +64,7 @@ public class JagerController {
     }
 
     @GetMapping("/{brandName}/shoes")
-    public String getBrandsWithShoes(@PathVariable("brandName") String brandName, Model model) {
+    public String getBrandWithShoes(@PathVariable("brandName") String brandName, Model model) {
         Brand currentBrand = null;
         for (Brand brand : brands) {
             if(brand.getBrandName().toLowerCase().equals(brandName.toLowerCase())) {
@@ -77,7 +77,7 @@ public class JagerController {
             throw new RuntimeException("Merk niet gevonden!");
         }
 
-        model.addAttribute("brandShoes", currentBrand.getShoes());
+        model.addAttribute("currentBrand", currentBrand);
         return "brandShoes";
 
     }
