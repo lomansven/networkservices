@@ -9,6 +9,7 @@ public class Shoe {
     private LocalDate releaseDate;
     private String details;
     private int shoeID;
+    private int votes;
 
     public Shoe() {
         this.shoeID = nextID;
@@ -50,5 +51,17 @@ public class Shoe {
 
     public int getShoeID() {
         return shoeID;
+    }
+
+    public void upvote() {
+        votes++;
+    }
+
+    public void downvote() {
+        votes--;
+    }
+
+    public int getVotes() {
+        return votes;
     }
 }
