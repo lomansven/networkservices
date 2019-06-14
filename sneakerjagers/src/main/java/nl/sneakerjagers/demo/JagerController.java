@@ -1,6 +1,5 @@
 package nl.sneakerjagers.demo;
 
-import jdk.nashorn.internal.ir.BreakableNode;
 import nl.sneakerjagers.demo.Models.Brand;
 import nl.sneakerjagers.demo.Models.Shoe;
 import nl.sneakerjagers.demo.Models.User;
@@ -54,6 +53,7 @@ public class JagerController {
     @GetMapping("/brands")
     public String getBrands(Model model) {
         model.addAttribute("brands", brands);
+        model.addAttribute("shoes", shoes);
         return "brands";
     }
 
