@@ -1,6 +1,7 @@
 package nl.sneakerjagers.demo;
 
 import nl.sneakerjagers.demo.Models.Brand;
+import nl.sneakerjagers.demo.Models.Link;
 import nl.sneakerjagers.demo.Models.Shoe;
 import nl.sneakerjagers.demo.Models.User;
 
@@ -12,6 +13,7 @@ public class DataProvider {
     public static ArrayList<Shoe> shoes = new ArrayList<>();
     public static ArrayList<Brand> brands = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<Link> links = new ArrayList<>();
 
     static {
         //TODO add some shoes, brands and users
@@ -24,6 +26,12 @@ public class DataProvider {
 
         addShoe(new Shoe("Adidas Yeezy 350 V2 Triple Black Reflective", LocalDate.of(2019, 6, 7), "Shining in the dark"));
 
+        //Adds all the links for the 'Quick Links column'
+        links.add(new Link("All brands", "localhost:8080/sneakerjagers/brands"));
+        links.add(new Link("All shoes","localhost:8080/sneakerjagers/shoes"));
+        for (Brand brand : brands) {
+            links.add(new Link(brand.getBrandName(), "localhost:8080/" + brand.getBrandName().toLowerCase() + "/shoes"));
+        }
 
     }
 

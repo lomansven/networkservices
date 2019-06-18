@@ -1,6 +1,7 @@
 package nl.sneakerjagers.demo;
 
 import nl.sneakerjagers.demo.Models.Brand;
+import nl.sneakerjagers.demo.Models.Link;
 import nl.sneakerjagers.demo.Models.Shoe;
 import nl.sneakerjagers.demo.Models.User;
 import org.springframework.http.HttpHeaders;
@@ -10,10 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 
 @Controller
@@ -23,6 +20,7 @@ public class JagerController {
     private ArrayList<Brand> brands = DataProvider.brands;
     private ArrayList<Shoe> shoes = DataProvider.shoes;
     private ArrayList<User> users = DataProvider.users;
+    private ArrayList<Link> links = DataProvider.links;
 
     @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody User user) {
@@ -52,7 +50,13 @@ public class JagerController {
         return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
     }
 
-
+    @GetMapping("/home")
+    public String getHomeScreen(Model model) {
+        model.addAttribute("links", links);
+        model.addAttribute("shoes", shoes);
+        model.addAttribute("brands", brands);
+        return "layout";
+    }
 
     @GetMapping("/brands")
     public String getBrands(Model model) {
