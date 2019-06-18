@@ -3,17 +3,14 @@
     <ul>
         <li th:each="shoe : ${shoes}">
             Schoen: [[${shoe.shoeName}]], release datum: [[${shoe.releaseDate}]]
-            <br/>
-            Votes: [[${shoe.votes}]]
-            <button type="button" onclick="upvote(shoe)">Upvote</button>
-            <button type="button" onclick="shoe.downvote()">Downvote</button>
         </li>
     </ul>
-
-<script>
-    function upvote() {
-
-    }
-</script>
+<div class="row">
+    <div class="grid" style="background-color:#f2f2f2;" th:each="shoe : ${shoes}">
+        <h2>[[${shoe.shoeName}]]</h2>
+        <h4>[[${shoe.releaseDate}]]</h4>
+        <p>[[${shoe.details}]]</p>
+    </div>
+</div>
 </body>
 </html>

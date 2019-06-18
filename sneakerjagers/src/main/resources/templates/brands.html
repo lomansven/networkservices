@@ -1,9 +1,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie page</title>
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}"
+          type="text/css"
+          href="/css/style.css"/>
+</head>
+</head>
 <body>
 <ul>
     <li th:each="brand : ${brands}">
         Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
     </li>
 </ul>
+
+<div class="recentcontainer" style="background-color:#fff;" >
+    <div class="recentitem" style="background-color:#e6e6e6;" th:each="shoe : ${shoes}">
+        <h4>[[${shoe.shoeName}]]</h4>
+        <p>[[${shoe.details}]]</p>
+    </div>
+</div>
+
 </body>
 </html>
