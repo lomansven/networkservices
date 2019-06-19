@@ -8,15 +8,14 @@
           type="text/css"
           href="/css/style.css"/>
 
-    <div th:fragment="layout">
+    <div th:fragment="linkscolumn">
         <div class="column">
             <div class="left">
                 Quick links
-                <div th:each="link : ${links}">
+                <div th:fragment="linkscolumn" th:each="link : ${links}">
                     <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
                 </div>
             </div>
-            <div class="right"></div>
         </div>
 
     </div>

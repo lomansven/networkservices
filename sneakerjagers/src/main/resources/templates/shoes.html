@@ -1,5 +1,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+
+<div th:fragment="linkscolumn">
+    <div class="column">
+        <div class="left">
+            Quick links
+            <div th:fragment="linkscolumn" th:each="link : ${links}">
+                <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
     <ul>
         <li th:each="shoe : ${shoes}">
             Schoen: [[${shoe.shoeName}]], release datum: [[${shoe.releaseDate}]]
