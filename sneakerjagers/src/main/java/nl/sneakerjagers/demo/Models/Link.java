@@ -6,6 +6,7 @@ public class Link {
     private String text;
 
     public Link(String text, String href) {
+
         this.href = href;
         this.text = text;
     }
@@ -17,4 +18,5 @@ public class Link {
     public String getText() {
         return text;
     }
+
 }
