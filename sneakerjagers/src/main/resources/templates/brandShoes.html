@@ -1,5 +1,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
+<head>
+    <title>SNEAKERJAGERS - [[${currentBrand.brandName}]]</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}"
+          type="text/css"
+          href="/static/css/style.css"/>
+    <link rel="stylesheet"
+          th:href="@{/css/middlepane.css}"
+          type = "text/css"
+          href="/static/css/middlepane.css">
+    <link rel="stylesheet"
+          th:href="@{/css/leftpane.css}"
+          type="text/css"
+          href="/static/css/leftpane.css">
+    <link rel="stylesheet"
+          th:href="@{/css/rightpane.css}"
+          type="text/css"
+          href="/static/css/rightpane.css">
+</head>
+<body th:insert="layout.html :: template_body">
 
 <div th:fragment="linkscolumn">
     <div class="column">

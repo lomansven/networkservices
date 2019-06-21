@@ -1,25 +1,58 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-
+    <title>SNEAKERJAGERS - Home</title>
     <meta charset="UTF-8">
     <link rel="stylesheet"
           th:href="@{/css/style.css}"
           type="text/css"
-          href="/css/style.css"/>
-
+          href="/static/css/style.css"/>
+    <link rel="stylesheet"
+          th:href="@{/css/middlepane.css}"
+          type = "text/css"
+          href="/static/css/middlepane.css">
+    <link rel="stylesheet"
+          th:href="@{/css/leftpane.css}"
+          type="text/css"
+          href="/static/css/leftpane.css">
+    <link rel="stylesheet"
+          th:href="@{/css/rightpane.css}"
+          type="text/css"
+          href="/static/css/rightpane.css">
 </head>
-<body>
-<div th:fragment="linkscolumn">
-    <div class="column">
-        <div class="left">
-            Quick links
-            <div th:fragment="linkscolumn" th:each="link : ${links}">
-                <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
-            </div>
-        </div>
+
+<body th:fragment="template_body">
+
+<div class="leftpane">
+    <div class="topleftpane">
+        <input type="text" id="searchShoe" placeholder="Search for a shoe">
+        <input type="text" id="searchBrand" placeholder="Search for a brand">
     </div>
 
+    <div class="links">
+        Quick links
+        <div th:fragment="linkscolumn" th:each="link : ${links}">
+            <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
+        </div>
+    </div>
 </div>
+
+<div class="rightpane">
+    <div class="toprightpane">
+        <h1>SNEAKERJAGERS</h1>
+
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" >
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password">
+        <button type="submit">Login</button>
+    </div>
+
+    <div th:each="shoe : ${shoes}">
+        <section> <h4>[[${shoe.shoeName}]]</h4>
+            <p>[[${shoe.details}]]</p>
+        </section>
+    </div>
+</div>
+
 </body>
 </html>

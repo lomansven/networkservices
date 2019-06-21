@@ -20,50 +20,13 @@
           href="/static/css/rightpane.css">
 </head>
 
-<body>
+<body th:insert="layout.html :: template_body">
 
-
-<div th:fragment="linkscolumn">
-    <div class="leftpane">
-        <div class="topleftpane">
-            <input type="text" id="searchShoe" placeholder="Search for a shoe">
-            <input type="text" id="searchBrand" placeholder="Search for a brand">
-        </div>
-            <h2>Quick links</h2>
-            <div th:fragment="linkscolumn" th:each="link : ${links}">
-                <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
-            </div>
-    </div>
+<div class="middlepane">
+    <section  th:each="brand : ${brands}">
+        Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
+    </section>
 </div>
-
-<div th:fragment="middencolumn">
-    <div class="middlepane">
-            <section  th:each="brand : ${brands}">
-                Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
-            </section>
-    </div>
-</div>
-
-<div th:fragment="rightcolumn">
-    <div class="rightpane">
-        <div class="toprightpane">
-            <h1>SNEAKERJAGERS</h1>
-
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" >
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password">
-            <button type="submit">Login</button>
-        </div>
-
-        <div th:each="shoe : ${shoes}">
-            <section> <h4>[[${shoe.shoeName}]]</h4>
-                <p>[[${shoe.details}]]</p>
-            </section>
-        </div>
-    </div>
-</div>
-
 
 </body>
 </html>
