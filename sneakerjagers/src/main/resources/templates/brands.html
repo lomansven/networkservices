@@ -1,38 +1,69 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>SNEAKERJAGERS - Brands</title>
     <meta charset="UTF-8">
     <link rel="stylesheet"
           th:href="@{/css/style.css}"
           type="text/css"
-          href="/css/style.css"/>
+          href="/static/css/style.css"/>
+    <link rel="stylesheet"
+          th:href="@{/css/middlepane.css}"
+            type = "text/css"
+          href="/static/css/middlepane.css">
+    <link rel="stylesheet"
+          th:href="@{/css/leftpane.css}"
+          type="text/css"
+          href="/static/css/leftpane.css">
+    <link rel="stylesheet"
+          th:href="@{/css/rightpane.css}"
+          type="text/css"
+          href="/static/css/rightpane.css">
 </head>
-</head>
+
 <body>
 
+
 <div th:fragment="linkscolumn">
-    <div class="column">
-        <div class="left">
-            Quick links
+    <div class="leftpane">
+        <div class="topleftpane">
+            <input type="text" id="searchShoe" placeholder="Search for a shoe">
+            <input type="text" id="searchBrand" placeholder="Search for a brand">
+        </div>
+            <h2>Quick links</h2>
             <div th:fragment="linkscolumn" th:each="link : ${links}">
                 <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
             </div>
+    </div>
+</div>
+
+<div th:fragment="middencolumn">
+    <div class="middlepane">
+            <section  th:each="brand : ${brands}">
+                Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
+            </section>
+    </div>
+</div>
+
+<div th:fragment="rightcolumn">
+    <div class="rightpane">
+        <div class="toprightpane">
+            <h1>SNEAKERJAGERS</h1>
+
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" >
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password">
+            <button type="submit">Login</button>
+        </div>
+
+        <div th:each="shoe : ${shoes}">
+            <section> <h4>[[${shoe.shoeName}]]</h4>
+                <p>[[${shoe.details}]]</p>
+            </section>
         </div>
     </div>
-
 </div>
 
-<ul>
-    <li th:each="brand : ${brands}">
-        Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
-    </li>
-</ul>
-
-<div class="recentcontainer" style="background-color:#fff;" >
-    <div class="recentitem" style="background-color:#e6e6e6;" th:each="shoe : ${shoes}">
-        <h4>[[${shoe.shoeName}]]</h4>
-        <p>[[${shoe.details}]]</p>
-    </div>
-</div>
 
 </body>
 </html>

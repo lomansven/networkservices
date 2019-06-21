@@ -20,6 +20,7 @@ public class DataProvider {
         addUser(new User("lomansven", "1234", "Sven Loman"));
 
         addBrand(new Brand("Nike", LocalDate.of(1964, 1, 25), "Swoosh"));
+        addBrand(new Brand("Adidas", LocalDate.of(1949, 9, 18), "Three stripes"));
 
         addShoeToBrand("nike", new Shoe("Nike x Off-White Airforce 1", LocalDate.of(2018, 12, 19), "Very nice"));
         addShoeToBrand("nike", new Shoe("Nike x Off-White AirMax 90", LocalDate.of(2019, 2, 7), "In a black and desert colorway!"));
