@@ -60,3 +60,34 @@
     display: table;
     clear: both;
 }
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+section {
+    padding: 1em;
+    margin: 15px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+section::after {
+    content: '';
+    display: block;
+    clear: right;
+}
+
+section > img {
+    width: 100px;
+    height: auto;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+}
+
+section > p {
+    margin: 0;
+}
+
