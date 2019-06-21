@@ -28,6 +28,7 @@ public class DataProvider {
         addShoe(new Shoe("Adidas Yeezy 350 V2 Triple Black Reflective", LocalDate.of(2019, 6, 7), "Shining in the dark"));
 
         //Adds all the links for the 'Quick Links column'
+        links.add(new Link("Home", "/sneakerjagers/home"));
         links.add(new Link("All brands", "/sneakerjagers/brands"));
         links.add(new Link("All shoes","/sneakerjagers/shoes"));
         for (Brand brand : brands) {

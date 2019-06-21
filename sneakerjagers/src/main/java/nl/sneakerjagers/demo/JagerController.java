@@ -32,6 +32,7 @@ public class JagerController {
 
     @GetMapping("/brands")
     public String getBrands(Model model) {
+        model.addAttribute("links", links);
         model.addAttribute("brands", brands);
         model.addAttribute("shoes", shoes);
         return "brands";
@@ -39,6 +40,7 @@ public class JagerController {
 
     @GetMapping("/shoes")
     public String getShoes(Model model) {
+        model.addAttribute("links", links);
         model.addAttribute("shoes", shoes);
         return "shoes";
     }
@@ -57,6 +59,7 @@ public class JagerController {
             throw new RuntimeException("Merk niet gevonden!");
         }
 
+        model.addAttribute("links", links);
         model.addAttribute("currentBrand", currentBrand);
         return "brandShoes";
 
