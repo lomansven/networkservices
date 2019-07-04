@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>SNEAKERJAGERS - [[${currentBrand.brandName}]]</title>
+    <title>SNEAKERJAGERS - Brands</title>
     <meta charset="UTF-8">
     <link rel="stylesheet"
           th:href="@{/css/style.css}"
@@ -19,22 +19,17 @@
           type="text/css"
           href="/static/css/rightpane.css">
 </head>
+
 <body>
 
 <div th:replace="layout.html :: leftpane"></div>
 <div th:replace="layout.html :: rightpane"></div>
 
 <div class="middlepane">
-<ul>
-    <li>
-        Merk: [[${currentBrand.brandName}]], oprichtingsdatum: [[${currentBrand.establishmentDate}]]
-        <ul>
-            <li th:each="shoe : ${currentBrand.shoes}">
-                Schoen: [[${shoe.shoeName}]], release datum: [[${shoe.releaseDate}]]
-            </li>
-        </ul>
-    </li>
-</ul>
+    <h2>[[${currentShoe.shoeName}]]</h2>
+    <h3>Release date: [[${currentShoe.releaseDate}]]</h3>
+    <br>
+    <a>[[${currentShoe.details}]]</a>
 </div>
+
 </body>
-</html>

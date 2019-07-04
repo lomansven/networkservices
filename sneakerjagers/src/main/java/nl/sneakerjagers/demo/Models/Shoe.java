@@ -8,6 +8,7 @@ public class Shoe {
     private String shoeName;
     private LocalDate releaseDate;
     private String details;
+    private String imagePath;
     private int shoeID;
     private int votes;
 
@@ -20,6 +21,16 @@ public class Shoe {
         this.shoeName = shoeName;
         this.releaseDate = releaseDate;
         this.details = details;
+
+        this.shoeID = nextID;
+        nextID++;
+    }
+
+    public Shoe(String shoeName, LocalDate releaseDate, String details, String imagePath) {
+        this.shoeName = shoeName;
+        this.releaseDate = releaseDate;
+        this.details = details;
+        this.imagePath = imagePath;
 
         this.shoeID = nextID;
         nextID++;
@@ -51,6 +62,10 @@ public class Shoe {
 
     public int getShoeID() {
         return shoeID;
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 
     public void upvote() {
