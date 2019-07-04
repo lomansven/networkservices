@@ -18,6 +18,7 @@ public class DataProvider {
     static {
         //TODO add some shoes, brands and users
         addUser(new User("lomansven", "1234", "Sven Loman"));
+        addUser(new User("ducviet", "1234", "Ducviet Dinhvan"));
 
         addBrand(new Brand("Nike", LocalDate.of(1964, 1, 25), "Swoosh"));
         addBrand(new Brand("Adidas", LocalDate.of(1949, 9, 18), "Three stripes"));

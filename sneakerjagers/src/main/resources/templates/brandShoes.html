@@ -19,20 +19,12 @@
           type="text/css"
           href="/static/css/rightpane.css">
 </head>
-<body th:insert="layout.html :: template_body">
+<body>
 
-<div th:fragment="linkscolumn">
-    <div class="column">
-        <div class="left">
-            Quick links
-            <div th:fragment="linkscolumn" th:each="link : ${links}">
-                <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
-            </div>
-        </div>
-    </div>
+<div th:replace="layout.html :: leftpane"></div>
+<div th:replace="layout.html :: rightpane"></div>
 
-</div>
-
+<div class="middlepane">
 <ul>
     <li>
         Merk: [[${currentBrand.brandName}]], oprichtingsdatum: [[${currentBrand.establishmentDate}]]
@@ -43,5 +35,6 @@
         </ul>
     </li>
 </ul>
+</div>
 </body>
 </html>

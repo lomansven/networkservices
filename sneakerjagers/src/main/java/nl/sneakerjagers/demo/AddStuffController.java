@@ -1,7 +1,6 @@
 package nl.sneakerjagers.demo;
 
 import nl.sneakerjagers.demo.Models.Brand;
-import nl.sneakerjagers.demo.Models.Link;
 import nl.sneakerjagers.demo.Models.Shoe;
 import nl.sneakerjagers.demo.Models.User;
 import org.springframework.http.HttpHeaders;
@@ -17,10 +16,6 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("/sneakerjagers")
 public class AddStuffController {
-
-    private ArrayList<Brand> brands = DataProvider.brands;
-    private ArrayList<Shoe> shoes = DataProvider.shoes;
-    private ArrayList<User> users = DataProvider.users;
 
     @PostMapping("/user")
     public ResponseEntity<User> createUser(@RequestBody User user) {

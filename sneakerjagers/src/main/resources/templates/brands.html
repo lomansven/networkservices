@@ -20,13 +20,17 @@
           href="/static/css/rightpane.css">
 </head>
 
-<body th:insert="layout.html :: template_body">
+<body>
+<div th:replace="layout.html :: leftpane"></div>
+<div th:replace="layout.html :: rightpane"></div>
 
 <div class="middlepane">
     <section  th:each="brand : ${brands}">
         Merk: [[${brand.brandName}]], oprichtingsdatum: [[${brand.establishmentDate}]]
     </section>
 </div>
+
+
 
 </body>
 </html>

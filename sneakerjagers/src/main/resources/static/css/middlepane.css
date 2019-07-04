@@ -1,9 +1,10 @@
 
 .middlepane {
-    width: 60%;
+    padding-left: 10px;
+    width: 55%;
     height: 100%;
     float: left;
-    background-color: royalblue;
+    /*background-color: royalblue;*/
     border-collapse: collapse;
 }
 

@@ -19,30 +19,23 @@
           type="text/css"
           href="/static/css/rightpane.css">
 </head>
-<body th:insert="layout.html :: template_body">
+<body>
 
-<div th:fragment="linkscolumn">
-    <div class="column">
-        <div class="left">
-            Quick links
-            <div th:fragment="linkscolumn" th:each="link : ${links}">
-                <a href=&{link.html} th:href=@{${link.href}}>[[${link.text}]]</a>
-            </div>
-        </div>
-    </div>
+<div th:replace="layout.html :: leftpane"></div>
+<div th:replace="layout.html :: rightpane"></div>
 
-</div>
-
+<div class="middlepane">
     <ul>
         <li th:each="shoe : ${shoes}">
             Schoen: [[${shoe.shoeName}]], release datum: [[${shoe.releaseDate}]]
         </li>
     </ul>
-<div class="row">
-    <div class="grid" style="background-color:#f2f2f2;" th:each="shoe : ${shoes}">
-        <h2>[[${shoe.shoeName}]]</h2>
-        <h4>[[${shoe.releaseDate}]]</h4>
-        <p>[[${shoe.details}]]</p>
+    <div class="row">
+        <div class="grid" style="background-color:#f2f2f2;" th:each="shoe : ${shoes}">
+            <h2>[[${shoe.shoeName}]]</h2>
+            <h4>[[${shoe.releaseDate}]]</h4>
+            <p>[[${shoe.details}]]</p>
+        </div>
     </div>
 </div>
 </body>
