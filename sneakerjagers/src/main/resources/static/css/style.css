@@ -54,8 +54,7 @@
 }
 
 .middle {
-    margin-left: 20px;
-    width: 55%;
+    margin: 10px;
 }
 
 /* Clear floats after the columns */
@@ -69,6 +68,13 @@
     width: 100%;
     height: 100%;
 }
+
+.shortnav {
+    height: 80%;
+}
+
+nav div{height:100%; width:90%;}
+nav div{overflow:hidden; overflow-y:scroll;}
 
 section {
     padding: 1em;

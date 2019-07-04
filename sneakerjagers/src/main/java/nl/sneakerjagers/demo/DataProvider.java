@@ -23,8 +23,14 @@ public class DataProvider {
         addBrand(new Brand("Nike", LocalDate.of(1964, 1, 25), "Swoosh"));
         addBrand(new Brand("Adidas", LocalDate.of(1949, 9, 18), "Three stripes"));
 
+        //Nike shoes
         addShoeToBrand("nike", new Shoe("Nike x Off-White Airforce 1", LocalDate.of(2018, 12, 19), "Very nice", "af1_ow.jpg"));
         addShoeToBrand("nike", new Shoe("Nike x Off-White AirMax 90", LocalDate.of(2019, 2, 7), "In a black and desert colorway!", "am90_ow.jpg"));
+        addShoeToBrand("nike", new Shoe("Nike x Sean Wotherspoon AirMax 97/1", LocalDate.of(2018, 3, 26), "An AirMax 97 shoe, with the sole of an AirMax 1! Designed by Sean Wotherspoon.", "am1_seanwotherspoon.jpg"));
+        addShoeToBrand("nike", new Shoe("Nike x Parra AirMax 1", LocalDate.of(2019, 7, 21), "Designed by Amsterdam artist Piet Parra", "am1_parra.jpg"));
+        addShoeToBrand("nike", new Shoe("Nike x Travis Scott AirJordan 1", LocalDate.of(2019, 2, 11), "Reversed swoosh :O", "aj1_travisscott.jpg"));
+
+        //Adidas shoes
         addShoeToBrand("adidas", new Shoe("Adidas Yeezy 350 V2 Triple Black Reflective", LocalDate.of(2019, 6, 7), "Shining in the dark", "yeezy350_v2_blackreflective.png"));
 
         //Adds all the links for the 'Quick Links column'

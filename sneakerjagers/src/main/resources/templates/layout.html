@@ -48,9 +48,13 @@
 
     <div class="lowerrightpane">
         <h3>Recently visited</h3>
-        <section th:each="shoe : ${shoes}"> <h4>[[${shoe.shoeName}]]</h4>
-            <p>[[${shoe.details}]]</p>
-        </section>
+        <nav class="shortnav">
+            <div>
+                <section th:each="shoe : ${shoes}"> <h4>[[${shoe.shoeName}]]</h4>
+                    <p>[[${shoe.details}]]</p>
+                </section>
+            </div>
+        </nav>
     </div>
 </div>
 
