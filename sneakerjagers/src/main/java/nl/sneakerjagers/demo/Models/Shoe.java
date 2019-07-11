@@ -10,7 +10,8 @@ public class Shoe {
     private String details;
     private String imagePath;
     private int shoeID;
-    private int votes;
+    private Link link;
+    private Brand brand;
 
     public Shoe() {
         this.shoeID = nextID;
@@ -68,15 +69,8 @@ public class Shoe {
         return imagePath;
     }
 
-    public void upvote() {
-        votes++;
+    public void addBrand(Brand brand) {
+        this.brand = brand;
     }
 
-    public void downvote() {
-        votes--;
-    }
-
-    public int getVotes() {
-        return votes;
-    }
 }
