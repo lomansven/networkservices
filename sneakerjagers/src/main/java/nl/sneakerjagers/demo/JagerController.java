@@ -24,6 +24,7 @@ public class JagerController {
         model.addAttribute("links", links);
         model.addAttribute("shoes", shoes);
         model.addAttribute("brands", brands);
+        model.addAttribute("dataprovider", DataProvider.class);
         return "layout";
     }
 
@@ -32,6 +33,7 @@ public class JagerController {
         model.addAttribute("links", links);
         model.addAttribute("brands", brands);
         model.addAttribute("shoes", shoes);
+        model.addAttribute("dataprovider", DataProvider.class);
         return "brands";
     }
 
@@ -39,6 +41,7 @@ public class JagerController {
     public String getShoes(Model model) {
         model.addAttribute("links", links);
         model.addAttribute("shoes", shoes);
+        model.addAttribute("dataprovider", DataProvider.class);
         return "shoes";
     }
 
@@ -62,6 +65,7 @@ public class JagerController {
         }
 
         model.addAttribute("currentShoe", currentShoe);
+        model.addAttribute("dataprovider", DataProvider.class);
 
         return "shoe";
     }
@@ -82,6 +86,7 @@ public class JagerController {
 
         model.addAttribute("links", links);
         model.addAttribute("currentBrand", currentBrand);
+        model.addAttribute("dataprovider", DataProvider.class);
         return "brandShoes";
 
     }

@@ -40,6 +40,9 @@ public class DataProvider {
         for (Brand brand : brands) {
             links.add(new Link(brand.getBrandName(), "/sneakerjagers/" + brand.getBrandName().toLowerCase() + "/shoes"));
         }
+        for (Shoe shoe : shoes) {
+
+        }
 
     }
 
@@ -52,6 +55,7 @@ public class DataProvider {
         for (Brand brand : brands) {
             if(brand.getBrandName().toLowerCase().trim().equals(brandName.toLowerCase().trim())) {
                 brand.addShoe(s);
+                s.addBrand(brand);
             }
         }
     }
@@ -100,5 +104,11 @@ public class DataProvider {
         return null;
     }
 
+    public static ArrayList<Brand> getBrands() {
+        return brands;
+    }
 
+    public static ArrayList<Shoe> getShoes() {
+        return shoes;
+    }
 }
