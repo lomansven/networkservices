@@ -8,7 +8,7 @@
           href="/static/css/style.css"/>
     <link rel="stylesheet"
           th:href="@{/css/middlepane.css}"
-          type = "text/css"
+          type="text/css"
           href="/static/css/middlepane.css">
     <link rel="stylesheet"
           th:href="@{/css/leftpane.css}"
@@ -37,20 +37,18 @@
 <div th:fragment="rightpane" class="rightpane">
     <div class="toprightpane">
         <h1>SNEAKERJAGERS</h1>
-
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" >
-        </br>
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password">
-        <button type="submit">Login</button>
+        <form th:action="@{/login}" method="post">
+            Username : <input type="text" name="username">
+            Password : <input type="password" name="password">
+            <input type="submit">
+        </form>
     </div>
 
     <div class="lowerrightpane">
         <h3>Recently visited</h3>
         <nav class="shortnav">
             <div>
-                <section th:each="shoe : ${shoes}"> <h4>[[${shoe.shoeName}]]</h4>
+                <section th:each="shoe : ${shoes}"><h4>[[${shoe.shoeName}]]</h4>
                     <p>[[${shoe.details}]]</p>
                 </section>
             </div>
