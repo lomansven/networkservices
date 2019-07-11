@@ -100,5 +100,11 @@ public class DataProvider {
         return null;
     }
 
+    public static ArrayList<Brand> getBrands() {
+        return brands;
+    }
 
+    public static ArrayList<Shoe> getShoes() {
+        return shoes;
+    }
 }
